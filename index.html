@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Nazir Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* VOICE work: a security engineer's record, read three ways
+   IDEA access credentials: badge in as engineer, recruiter or business lead; the career itself reads as a widening security perimeter
+   PICTURE gate: three smart-card badges; every view opens with the career track at true time scale, 2018 to now, in three overlapping lanes
+   COLOUR white ground, black ink, cobalt #1240e0 dominant strip, pale #eef2ff zones, vermilion accent for "caught before production"
+   TYPE Space Grotesk 600/700 display + Inter text
+   LAYOUT gate: headline over three badges (stack under 700px); views: cobalt strip with title and track, then label column + content sections */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0a0d18);--ink:light-dark(#0b0d12,#eef0f7);--mute:light-dark(#4a5068,#a3a9c2);--co:light-dark(#1240e0,#2f55e8);--coink:#ffffff;--pale:light-dark(#eef2ff,#121a33);--line:light-dark(#d5dcf3,#26304f);--ac:light-dark(#e8401c,#ff6a45);--card:light-dark(#ffffff,#0f1426)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,5vw,52px);font-weight:700}
+h2{font-size:clamp(24px,3vw,32px);font-weight:600}
+h3{font-size:19px;font-weight:600;line-height:1.2}
+p{margin:0 0 12px;max-width:68ch}
+a{color:inherit}
+.band{padding:clamp(28px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.mute{color:var(--mute)}
+.strip{background:var(--co);color:var(--coink)}
+.strip .mute{color:#d6defc}
+nav.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:8px max(5vw,16px);display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+nav.top .who{font-family:"Space Grotesk";font-weight:700;margin-right:auto;text-decoration:none;min-height:44px;display:flex;align-items:center}
+nav.top .tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab,.btn{font:500 15px Inter,sans-serif;min-height:44px;padding:0 16px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;text-decoration:none}
+.tab[aria-current=page]{background:var(--co);border-color:var(--co);color:var(--coink)}
+.tab:hover,.btn:hover{border-color:var(--co)}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.btn.inv{background:#fff;color:#0b0d12;border-color:#fff}
+.view{display:none}.view.on{display:block}
+/* gate */
+.gate-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:end}
+.badges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2.5vw,32px);margin-top:32px}
+.badge{all:unset;cursor:pointer;display:flex;flex-direction:column;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:0 14px 0 -6px var(--pale);overflow:hidden;transition:transform .25s ease}
+.badge:hover{transform:translateY(-6px)}
+.badge:focus-visible{outline:3px solid var(--ac);outline-offset:4px}
+.badge .bt{background:var(--co);color:var(--coink);padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font:600 14px "Space Grotesk"}
+.badge .slot{width:46px;height:8px;border-radius:4px;background:var(--bg)}
+.badge .bb{padding:18px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start}
+.badge svg{width:58px;height:46px}
+.badge .role{font:700 clamp(22px,2.6vw,28px)/1.05 "Space Grotesk";letter-spacing:-.02em}
+.badge .what{font-size:15px;color:var(--mute);margin-top:6px}
+.badge .bf{margin-top:auto;padding:12px 18px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;font-size:14px}
+.badge .go{color:var(--co);font-weight:600}
+.badge.granted .bt{background:var(--ac)}
+.lane .seg.open{border-left:0;border-radius:0 6px 6px 0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22) 40%)}
+.arc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+.arc b{display:block;font:600 17px "Space Grotesk"}
+.arc span{font-size:15px;color:var(--mute)}
+/* track */
+.track{margin-top:28px}
+.lane{display:grid;grid-template-columns:minmax(0,1fr);margin-bottom:10px}
+.lane .bar{position:relative;height:44px}
+.lane .seg{position:absolute;top:0;bottom:0;border-radius:6px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);padding:0 10px;display:flex;align-items:center;font:600 14px "Space Grotesk";white-space:nowrap;overflow:hidden}
+.lane .seg.now{background:#fff;color:#0b0d12;border-color:#fff}
+.lane small{display:block;font-size:13px;color:#d6defc;margin-top:4px}
+.ticks{position:relative;height:20px;border-top:1px solid rgba(255,255,255,.4);margin-top:6px}
+.ticks span{position:absolute;top:4px;font-size:13px;color:#d6defc;transform:translateX(-50%)}
+/* sections */
+.vhead{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px;align-items:end}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.panel{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--card)}
+.panel.pale{background:var(--pale);border-color:transparent}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:13px;padding:3px 9px;border-radius:6px;background:var(--pale);border:1px solid var(--line)}
+.strip .tag{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
+ul.clean{margin:8px 0 0;padding-left:18px}ul.clean li{margin:6px 0}
+.sect{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:24px;padding-top:32px;margin-top:32px;border-top:1px solid var(--line)}
+.sect:first-child{border-top:0;margin-top:0;padding-top:0}
+.era{margin-bottom:28px}
+.era-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline;margin-bottom:12px}
+.era-h .d{color:var(--mute);font-size:15px;white-space:nowrap}
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.cases .panel p{font-size:15px;margin:8px 0 0}
+.matrix{width:100%;border-collapse:collapse;font-size:15px}
+.matrix th,.matrix td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.matrix th{font:600 14px "Space Grotesk";color:var(--mute)}
+.matrix td:first-child{font-weight:600}
+.kv{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 16px;font-size:15px;margin:0}
+.kv dt{color:var(--mute)}.kv dd{margin:0}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.fig1{border-top:2px solid rgba(255,255,255,.5);padding-top:14px}
+.fig1 .was{font-size:14px;color:#d6defc;margin-bottom:6px;white-space:nowrap}
+.fig1 .n{font:700 clamp(36px,3.6vw,52px)/1 "Space Grotesk";letter-spacing:-.03em;white-space:nowrap}
+.fig1 .l{font-size:15px;margin-top:8px;color:#d6defc}
+.caught{display:grid;gap:0}
+.caught .row{display:grid;grid-template-columns:12px minmax(0,1fr) minmax(0,12em);gap:16px;padding:16px 0;border-top:1px solid var(--line);align-items:start}
+.caught .dot{width:12px;height:12px;border-radius:50%;background:var(--ac);margin-top:6px}
+.caught .w{color:var(--mute);font-size:14px}
+.step{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--line)}
+.step .k{font:700 28px/1 "Space Grotesk";color:var(--co)}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+footer{border-top:1px solid var(--line)}
+@media(max-width:900px){.figs{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:minmax(0,1fr)}.cases{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:700px){.badges,.arc{grid-template-columns:minmax(0,1fr)}.gate-head,.vhead,.grid2,.sect{grid-template-columns:minmax(0,1fr)}.caught .row{grid-template-columns:12px minmax(0,1fr)}.caught .w{grid-column:2}}
+@media(max-width:600px){.matrix{font-size:13px}.matrix thead{display:none}.matrix tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.matrix td{border:0;padding:3px 0}.lane .seg{font-size:13px;padding:0 6px}}
+@media(prefers-reduced-motion:reduce){.badge{transition:none}.badge:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<nav class="top" id="nav" hidden>
+  <a class="who" href="#">Muhammad Nazir</a>
+  <div class="tabs">
+    <a class="tab" href="#engineer" data-v="engineer">Engineer</a>
+    <a class="tab" href="#recruiter" data-v="recruiter">Recruiter</a>
+    <a class="tab" href="#business" data-v="business">Product / Business</a>
+  </div>
+</nav>
+
+<main id="gate" class="view">
+  <section class="band"><div class="wrap">
+    <div class="gate-head">
+      <div>
+        <p class="mute" style="margin-bottom:10px">Muhammad F. Nazir, Enterprise Architect and AI Automation Engineer, blue team</p>
+        <h1>From writing software, to running it, to architecting how it's defended. Pick your badge.</h1>
+      </div>
+      <p class="mute">Same career, three readings. Choose the one that matches why you're here. You can switch any time from the top bar.</p>
+    </div>
+    <div class="badges" id="badges"></div>
+    <div class="arc">
+      <div><b>Build it</b><span>Started as a software engineer. Computer science degree, code first, still writing it daily.</span></div>
+      <div><b>Run it</b><span>2018 to 2024: DevOps, SRE and DevSecOps for Fortune 500 clients, with SIEM and security gates built in.</span></div>
+      <div><b>Architect and defend it</b><span>Last three years: enterprise architecture, AI automation with ADLC-based development, and blue team defense of public-facing assets.</span></div>
+    </div>
+  </div></section>
+</main>
+
+<main id="engineer" class="view">
+  <section class="band strip"><div class="wrap">
+    <div class="vhead">
+      <div><p class="mute" style="margin-bottom:10px">Engineer view</p><h1>Software engineer turned enterprise architect: AI automation built with ADLC, defended like a blue team.</h1></div>
+      <div class="tags"><span class="tag">PIV-I / AD CS</span><span class="tag">ADFS</span><span class="tag">Entra ID</span><span class="tag">FIDO2</span><span class="tag">CyberArk</span><span class="tag">Zscaler ZIA/ZPA</span><span class="tag">Splunk</span><span class="tag">GitHub Actions</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span></div>
+    </div>
+    <div class="track" data-track></div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="sect"><div><h2>Technical history</h2><p class="mute">Newest first, grouped by what the work was for.</p></div><div id="eras"></div></div>
+    <div class="sect"><div><h2>Stack</h2><p class="mute">Grouped the way I'd use it on a security team.</p></div>
+      <div style="overflow-x:auto"><table class="matrix"><thead><tr><th>Area</th><th>Tools and standards</th></tr></thead><tbody id="matrix"></tbody></table></div></div>
+    <div class="sect"><div><h2>Standards I design against</h2></div><div class="grid3" id="stds"></div></div>
+  </div></section>
+</main>
+
+<main id="recruiter" class="view">
+  <section class="band strip"><div class="wrap">
+    <div class="vhead">
+      <div><p class="mute" style="margin-bottom:10px">Recruiter view</p><h1>Enterprise Architect and AI Automation Engineer with a blue team focus, 8+ years, Houston or remote.</h1></div>
+      <div><p>Software engineer by training, DevOps/SRE by experience, now architecting identity, automation and defenses for the federal judiciary (AOUSC) and a healthcare client through TechSur Solutions.</p><button class="btn inv" id="copyPitch">Copy a submittal blurb</button> <span id="copied" aria-live="polite"></span></div>
+    </div>
+    <div class="track" data-track></div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="grid3">
+      <div class="panel"><h3>Strong fit for</h3><ul class="clean"><li>Enterprise or Security Architect</li><li>AI Automation / AI Platform Engineer</li><li>Blue Team or Defensive Security Engineer</li><li>Senior DevSecOps or Software Engineer</li><li>IAM / Zero Trust Architect</li></ul></div>
+      <div class="panel"><h3>Credentials</h3><ul class="clean"><li>MS Information Security, University of Houston, 2024, GPA 3.80</li><li>BS Computer Science / Info Systems, minor in Math, Magna Cum Laude</li><li>AWS: Solutions Architect, DevOps, Developer, Security</li><li>Azure: Fundamentals, Developer Associate, DevOps Engineer Expert</li><li>CompTIA Security+, Lean Six Sigma Yellow Belt</li></ul></div>
+      <div class="panel"><h3>Why he stands out</h3><ul class="clean"><li>Has written, run and secured software, so architecture decisions hold up in production</li><li>Builds with AI agents inside strict guardrails: pinned dependencies, least privilege, tested gates</li><li>Defender's instinct for public-facing systems: found an MFA bypass and unfirewalled paths before launch</li><li>Federal identity standards (OMB M-22-09, NIST 800-63B) plus commercial CI/CD depth</li></ul></div>
+    </div>
+    <div class="sect"><div><h2>Title progression</h2></div><div id="titles"></div></div>
+    <div class="sect"><div><h2>Keywords</h2><p class="mute">For ATS search.</p></div><div class="tags" id="kw"></div></div>
+    <div class="sect"><div><h2>Get in touch</h2></div>
+      <dl class="kv"><dt>Email</dt><dd><a href="mailto:mnazir9876@gmail.com">mnazir9876@gmail.com</a></dd><dt>Location</dt><dd>Houston, TX, working remote</dd><dt>Open to</dt><dd>Full-time or contract security roles</dd></dl></div>
+  </div></section>
+</main>
+
+<main id="business" class="view">
+  <section class="band strip"><div class="wrap">
+    <p class="mute" style="margin-bottom:10px">Product and business view</p>
+    <h1 style="max-width:24ch">I protect what the public can reach, and I use automation so it costs less to defend.</h1>
+    <div class="figs" style="margin-top:32px" id="figs"></div>
+  </div></section>
+  <section class="band"><div class="wrap">
+    <div class="sect"><div><h2>Caught before production</h2><p class="mute">Each of these would have been a launch-day incident, an audit finding or a breach path.</p></div><div class="caught" id="caught"></div></div>
+    <div class="sect"><div><h2>How I work with product and leadership</h2></div><div id="steps"></div></div>
+    <div class="sect"><div><h2>What you get on your team</h2></div>
+      <div class="grid2">
+        <div class="panel pale"><h3>Architecture that matches the threat</h3><p style="margin-top:8px">Your public-facing apps, sign-in pages and remote access are where attackers start. I design those first and test them the way an attacker would, before your customers or auditors find the gap.</p></div>
+        <div class="panel pale"><h3>AI that saves hours, not adds risk</h3><p style="margin-top:8px">I use AI agents to build and run automation faster, inside guardrails: every change tested, every token least-privilege, every merge reviewed. My LLM triage bots cut incident recovery time by 40%.</p></div>
+        <div class="panel pale"><h3>Security that doesn't slow shipping</h3><p style="margin-top:8px">I started as a software engineer and spent six years running production before moving into architecture. My controls run inside the pipeline and fail with clear messages, so developers fix issues instead of working around them.</p></div>
+        <div class="panel pale"><h3>Sign-in people can't be phished out of</h3><p style="margin-top:8px">Smart cards and FIDO2 keys are the biggest lever against account takeover. I've rolled them out to a federal workforce without breaking the people who just need to get work done.</p></div>
+        <div class="panel pale"><h3>Decisions on one page</h3><p style="margin-top:8px">Business cases mapped to the standards auditors ask about, with options, cost and risk, so leadership can decide in one meeting.</p></div>
+        <div class="panel pale"><h3>An owner's lens</h3><p style="margin-top:8px">Outside work I invest in residential real estate, so I think in payback and risk. Same lens on a security budget.</p></div>
+      </div></div>
+  </div></section>
+</main>
+
+<footer class="band" id="foot" hidden><div class="wrap grid2">
+  <div><h3>Muhammad F. Nazir</h3><p class="mute" style="margin-top:6px">Senior Security Engineer, DevSecOps and Identity. Houston, TX.</p></div>
+  <div><p><a href="mailto:mnazir9876@gmail.com">mnazir9876@gmail.com</a></p><a class="btn" href="#">Back to badge select</a></div>
+</div></footer>
+
+<script>
+{
+const chip='<svg viewBox="0 0 58 46" aria-hidden="true"><rect x="1" y="1" width="56" height="44" rx="8" fill="#d9b44a"/><path d="M1 16h18v14H1M57 16H39v14h18M19 1v15h20V1M19 45V30h20v15" fill="none" stroke="#9c7a1e" stroke-width="2"/></svg>';
+const badges=[["engineer","technical","Engineer","The full technical history: every project, tool, standard and tradeoff.","Depth: maximum"],["recruiter","summary","Recruiter","Titles, dates, credentials, keywords and a blurb ready for a submittal.","Read time: 2 min"],["business","outcomes","Product / Business lead","Time saved, risks caught before launch, and how I work with leadership.","Jargon: minimal"]];
+document.getElementById('badges').innerHTML=badges.map(b=>`<button class="badge" data-go="${b[0]}" aria-label="Enter as ${b[2]}"><div class="bt">Access level: ${b[1]} <span class="slot"></span></div><div class="bb">${chip}<div><div class="role">${b[2]}</div><div class="what">${b[3]}</div></div></div><div class="bf"><span class="mute">${b[4]}</span><span class="go">Badge in</span></div></button>`).join('');
+
+/* career track at true scale, Jan 2018 to Dec 2026 */
+const t0=2016,t1=2027,pos=y=>((y-t0)/(t1-t0)*100);
+const roles=[[2016,2018,"Software Engineer","Where it started",2],[2018.0,2021.17,"DevOps / SRE","Cisco Systems / Launch",0],[2020.67,2024.42,"Senior DevSecOps / SRE","Launch",0],[2023.9,2026.9,"Enterprise Architecture + AI Automation","Launch, then TechSur Solutions",1]];
+const trackHTML=roles.map(r=>`<div class="lane"><div class="bar"><div class="seg${r[4]===1?' now':r[4]===2?' open':''}" style="left:${pos(r[0])}%;width:${pos(r[1])-pos(r[0])}%" title="${r[2]}, ${r[3]}">${r[2]}</div></div><small style="padding-left:${Math.min(pos(r[0]),70)}%">${r[3]}</small></div>`).join('')+`<div class="ticks">${[2018,2020,2022,2024,2026].map(y=>`<span style="left:${pos(y)+2}%">${y}</span>`).join('')}</div>`;
+document.querySelectorAll('[data-track]').forEach(e=>e.innerHTML=trackHTML);
+
+const eras=[
+ {t:"Enterprise architecture",d:"Last three years · TechSur Solutions (AOUSC, healthcare)",c:[
+  ["Identity modernization roadmap","Shaped an enterprise identity program for the federal judiciary into five pillars and 38 candidate initiatives, narrowed to a fundable eight-project portfolio.",["Roadmapping","Portfolio"]],
+  ["ADFS to Entra ID target state","Authored the migration business case to retire on-prem federation, with assurance levels mapped to OMB M-22-09 and NIST SP 800-63B AAL2/AAL3.",["Entra ID","Target architecture"]],
+  ["Phishing-resistant MFA design","Lead architecture for enterprise identity: PIV-I, FIDO2 and CyberArk-enforced strong auth for privileged accounts, aligned to SP 800-157.",["PIV-I","FIDO2","CyberArk"]],
+  ["Production-readiness review, multi-region Kubernetes","First prod deploy of three Marketplace services across two Azure regions: set the order of six interdependent PRs (Terraform, mesh egress, API gateway, overlays) and checked the change request and rollback against pipeline evidence.",["AKS","Service mesh","Terraform"]],
+  ["Vendor architecture assessment","Reviewed a YubiKey/FIDO2 lifecycle design and flagged OTP secret-key exposure, FIDO2 revocation limits, AMR claim propagation gaps and KB5014754 certificate mapping requirements.",["Vendor review"]]]},
+ {t:"AI automation and ADLC-based development",d:"Last three years · Launch, TechSur Solutions",c:[
+  ["LLM incident triage bots","Designed Slack bots with LLM integration for incident triage, real-time error correlation and automated runbook execution, cutting MTTR 40%.",["LLM","Slack","Runbooks"]],
+  ["Agent-built, human-gated delivery","Build with an agentic development lifecycle: AI agents draft code and tests, while pinned dependencies, least-privilege tokens, simulation harnesses and required review keep a human gate on every merge.",["ADLC","Guardrails"]],
+  ["Dependency pin bot","GitHub Actions bot (Bash, jq, REST) that advances a shared dependency through one rolling PR with a hold label, overwrite guard and Teams alerts; validated with a 108-case simulation harness (stubbed gh/git, mutation tests, bash 3.2 checks).",["GitHub Actions","Testing"]],
+  ["Test selection at scale","Analyzed an 11,000-test mobile suite and identified 483 tests safe for automated smoke runs; built sharded BrowserStack CI that keeps member data out of run summaries.",["Appium","BrowserStack"]],
+  ["Local LLM news digest","Side project: a self-hosted model on an always-on Ubuntu box that ranks and summarizes sources three times a day, tuned by feedback, data kept local.",["Local inference"]]]},
+ {t:"Blue team: protecting public-facing assets",d:"Last three years",c:[
+  ["MFA bypass caught in lab","Found a bypass condition in ADFS claim rule syntax and documented the corrected rule set before production rollout.",["ADFS","Adversarial testing"]],
+  ["Public access and remote entry","Rolled out Duo MFA for public access systems and engineered PIV-I smart card VPN through Zscaler ZIA/ZPA and ADFS, validating 16 auth and failure scenarios.",["Duo","Zscaler","PIV-I"]],
+  ["Public mobile app hardening","Appdome app-security protection, per-environment signing and pre-build identity checks on Android and iOS release pipelines for a healthcare member app.",["Appdome","Signing"]],
+  ["Exposure found before launch","Three network paths with no firewall rule, an empty approver group, and production pinned to a build older than staging after a scan blocked 5 high-severity findings.",["Network","Release gating"]],
+  ["Secrets and supply chain","Fail-closed dependency pinning across 14 repos, secrets standardized across 15+ repos with masked diagnostics (never values), write tokens split from webhook secrets.",["Supply chain","Secrets"]],
+  ["Findings to closure","Led remediation of assessor findings on an internal Slack app with least-privilege OAuth scopes, and caught a scoping error in a pip/urllib3 vulnerability fix.",["AppSec","Vuln mgmt"]],
+  ["Isolated security lab","AD, AD CS, an ADFS farm and the Duo adapter, built to test controls and failure modes; pre-production gaps documented for leadership.",["Lab"]]]},
+ {t:"Launch: Senior DevSecOps / SRE",d:"Sep 2020 to Jun 2024 · Comcast, Vex",c:[
+  ["Detection and monitoring","Splunk, ELK, Grafana and Dynatrace with custom SPL and DQL for anomaly detection, alert correlation and predictive alerting.",["SPL","DQL"]],
+  ["Escalation point","Primary escalation for firewall, network control and VM issues across Azure, AWS, on-prem and hybrid.",["Incident response"]],
+  ["Provisioning: days to under 2 hours","Helm, Terraform modules and Kubernetes manifests standardized across 15+ enterprise environments; Terraform for EKS/AKS and Ansible reached 95% deploy success with zero-downtime releases.",["Helm","EKS","AKS"]],
+  ["Platform migration","Containerized .NET apps and moved them from AWS/Concourse to Azure/Octopus Deploy.",["Docker","Octopus"]],
+  ["Immutable infrastructure","Chef, Vagrant and PowerShell cut server setup from 2 weeks to 1 hour.",["Chef"]],
+  ["Disaster recovery","IaC-driven disaster recovery automation with sub-15 minute RTO, plus incident response runbooks.",["DR","Runbooks"]]]},
+ {t:"Cisco Systems / Launch: DevOps / SRE",d:"Jan 2018 to Mar 2021 · Expedia, Charter, Shell, BP, Vimeo",c:[
+  ["SIEM ownership","SolarWinds SIEM deployments: log ingestion, correlation rules, alert profiling, compliance monitoring. Splunk security monitoring for SOC and compliance reporting.",["SolarWinds","Splunk"]],
+  ["Security gates and pen tests","Coordinated external pen tests; built gates that blocked plaintext secrets and enforced thresholds in Jenkins, Docker and Kubernetes pipelines.",["Jenkins","Secrets detection"]],
+  ["Automation and cloud adoption","PowerShell and Bash for AD, network config and policy enforcement; guided Fortune 500 clients through AWS adoption with IaC.",["PowerShell","AWS"]]]},
+ {t:"Software engineering: where it started",d:"Before 2018",c:[
+  ["Foundations","Started as a software engineer after a BS in Computer Science and Information Systems (minor in Math, Magna Cum Laude). Writing application code is still how I approach every pipeline, bot and control.",["C#","Python","JavaScript","Ruby"]],
+  ["Still shipping code","Bash, Python and PowerShell automation, GitHub REST integrations, test harnesses and Slack apps across every role since.",["Bash","PowerShell","REST"]]]}];
+document.getElementById('eras').innerHTML=eras.map(e=>`<div class="era"><div class="era-h"><h3>${e.t}</h3><span class="d">${e.d}</span></div><div class="cases">${e.c.map(c=>`<div class="panel"><h3 style="font-size:17px">${c[0]}</h3><p>${c[1]}</p><div class="tags">${c[2].map(x=>`<span class="tag">${x}</span>`).join('')}</div></div>`).join('')}</div></div>`).join('');
+
+const matrix=[["Identity and access","PIV-I, PKI (AD CS), ADFS, Entra ID, Duo, CyberArk, YubiKey/FIDO2, Zscaler ZIA/ZPA"],["SIEM and monitoring","Splunk (SPL), SolarWinds SIEM, ELK/Elastic, Dynatrace (DQL), Grafana, Datadog"],["Security testing","Nessus, Kali Linux, Wireshark, pen test coordination, secrets detection, quality gates"],["CI/CD and supply chain","GitHub Actions, Jenkins, Azure DevOps, Octopus Deploy, Concourse, GitOps, Appdome"],["Containers","Docker, Kubernetes, Helm, EKS, AKS, service mesh egress"],["IaC and config","Terraform, Ansible, Chef, Vagrant, CloudFormation"],["Cloud and network","AWS, Azure, VMware, hybrid; firewalls, VPN, segmentation, DNS, proxy"],["Languages","Python, Bash, PowerShell, C#, Ruby, JavaScript"]];
+document.getElementById('matrix').innerHTML=matrix.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+
+const stds=[["OMB M-22-09","Federal zero trust strategy and phishing-resistant MFA mandate"],["NIST SP 800-63B","Authenticator assurance, AAL2 vs AAL3"],["NIST SP 800-157","Derived PIV credentials and token lifecycle"]];
+document.getElementById('stds').innerHTML=stds.map(s=>`<div class="panel pale"><h3>${s[0]}</h3><p style="margin-top:6px;font-size:15px">${s[1]}</p></div>`).join('');
+
+const titles=[["2024","Senior Platform Engineer, Identity and Access Security","TechSur Solutions. Focus: enterprise architecture, AI automation, blue team. Clients: AOUSC (federal judiciary), healthcare benefits administrator."],["2020","Senior DevSecOps / Site Reliability Engineer","Launch. Clients: Comcast, Vex."],["2018","DevOps / SRE Engineer","Cisco Systems / Launch. Clients: Expedia, Charter, Shell, BP, Vimeo."],["Start","Software Engineer","Where the career began, after a BS in Computer Science and Information Systems."]];
+document.getElementById('titles').innerHTML=titles.map(t=>`<div class="step"><div class="k" style="font-size:18px">${t[0]}</div><div><h3>${t[1]}</h3><p class="mute" style="margin-top:4px">${t[2]}</p></div></div>`).join('');
+
+const kw=["Enterprise Architecture","Security Architecture","AI Automation","LLM","Agentic Development","ADLC","Blue Team","Defensive Security","Attack Surface Reduction","Software Engineering","Security Engineer","IAM","MFA","PKI","PIV-I","ADFS","Entra ID","FIDO2","CyberArk","Zscaler","Zero Trust","OMB M-22-09","NIST 800-63B","SIEM","Splunk","ELK","Dynatrace","Incident Response","DevSecOps","Supply Chain Security","GitHub Actions","Secrets Management","Kubernetes","Docker","Terraform","Ansible","AWS","Azure","Python","Penetration Testing","Vulnerability Management","Security+"];
+document.getElementById('kw').innerHTML=kw.map(k=>`<span class="tag">${k}</span>`).join('');
+
+const pitch="Muhammad Nazir is an Enterprise Architect and AI Automation Engineer with a blue team focus and 8+ years of experience, based in Houston and working remote. He started as a software engineer, spent six years in DevOps, SRE and DevSecOps at Launch and Cisco Systems for clients including Comcast, Expedia and Charter, and over the last three years has moved into enterprise architecture and AI automation. At TechSur Solutions he architects phishing-resistant identity for the federal judiciary (PIV-I, FIDO2, CyberArk, Zscaler, an ADFS to Entra ID roadmap) and hardens public-facing mobile apps and release pipelines for a healthcare client, building with an agentic development lifecycle under strict guardrails. He has built LLM triage bots that cut MTTR 40%. MS in Information Security (University of Houston), AWS and Azure certified, CompTIA Security+.";
+document.getElementById('copyPitch').addEventListener('click',async()=>{const o=document.getElementById('copied');try{await navigator.clipboard.writeText(pitch);o.textContent='Copied'}catch(e){o.textContent='Copy blocked, text shown below';if(!document.getElementById('pt')){const p=document.createElement('p');p.id='pt';p.textContent=pitch;p.style.marginTop='12px';o.after(p)}}});
+
+const figs=[["Was 2 weeks","1 hour","server setup with immutable infrastructure"],["Was days","< 2 hrs","environment provisioning across 15+ environments"],["MTTR","40% faster","incident recovery with LLM triage bots"],["RTO","< 15 min","disaster recovery, fully automated"]];
+document.getElementById('figs').innerHTML=figs.map(f=>`<div class="fig1"><div class="was">${f[0]}</div><div class="n">${f[1]}</div><div class="l">${f[2]}</div></div>`).join('');
+
+const caught=[["An MFA bypass in the sign-in rules","Found in lab testing, fixed before a federal rollout.","Federal identity"],["An empty approver group","Would have blocked the production approval on launch day.","Kubernetes launch"],["Three network paths with no firewall rule","Database, identity endpoint and feature-flag service.","Kubernetes launch"],["Production pinned to an older build than staging","A security scan had blocked the release in between; I recommended the fixed build.","Kubernetes launch"],["A remediation plan scoped wrong","The planned dependency fix would have missed affected systems.","Vulnerability response"]];
+document.getElementById('caught').innerHTML=caught.map(c=>`<div class="row"><span class="dot"></span><div><h3>${c[0]}</h3><p class="mute" style="margin:4px 0 0">${c[1]}</p></div><span class="w">${c[2]}</span></div>`).join('');
+
+const steps=[["Frame","Turn a vague mandate into a short list of projects leadership can fund."],["Prove","Build a lab, define the test cases first (16 for smart card VPN), and show them passing."],["Justify","Write the case in language auditors and executives already use: assurance levels, risk, cost."],["Ship","Put the control in the pipeline, document the remaining gaps honestly, hand over clean."]];
+document.getElementById('steps').innerHTML=steps.map(s=>`<div class="step"><div class="k">${s[0][0]}</div><div><h3>${s[0]}</h3><p class="mute" style="margin-top:4px">${s[1]}</p></div></div>`).join('');
+
+const views=['engineer','recruiter','business'];
+const show=()=>{const h=location.hash.slice(1);const v=views.includes(h)?h:'gate';
+ document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id===v));
+ document.getElementById('nav').hidden=v==='gate';document.getElementById('foot').hidden=v==='gate';
+ document.querySelectorAll('.tab').forEach(t=>{if(t.dataset.v===v)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current')});
+ window.scrollTo(0,0)};
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.badge').forEach(b=>b.addEventListener('click',()=>{const g=b.querySelector('.go');b.classList.add('granted');g.textContent='Access granted';setTimeout(()=>{location.hash=b.dataset.go;b.classList.remove('granted');g.textContent='Badge in'},rm?0:380)}));
+window.addEventListener('hashchange',show);show();
+}
+</script>
+</body>
+</html>
